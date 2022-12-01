@@ -2,15 +2,14 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useRef, useState } from 'react';
 import { Breadcrumbs, Link } from '@mui/material';
 
-// const update: CSS.Properties = {
+// const create: CSS.Properties = {
 //     float: 'left',
 //     padding: '40px',
 //     textAlign: 'left',
 //     justifyContent: 'left',
-//     alignItems: 'center'
+//     alignItems: 'left'
 
 // }
 
@@ -25,20 +24,20 @@ import { Breadcrumbs, Link } from '@mui/material';
 //     console.info('You clicked a breadcrumb.');
 //   }
 
-export default function UpdateBook(){
+export default function CreateBook(){
     return (
         // <div role="presentation" onClick={handleClick}>
         <div>
             <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
-              <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/TeknoyArchive/Update">
+              <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/TeknoyArchive/Create">
                   Teknoy Archives
               </Link>
               <Link color="orange" fontSize={25} fontWeight={10} underline="hover" href="/">
-                  Update Review
+                  Create Review
               </Link>
           </Breadcrumbs> 
     <div>
-        {/* <div className="update" style={update}> */}
+        {/* <div className="create" style={create}> */}
         <div>
             <Box
             component="form"
@@ -60,13 +59,10 @@ export default function UpdateBook(){
             Enter Synopsis
             <TextField id="outlined-basic" label="Enter Synopsis" variant="outlined" color='success'/> <br></br>
             </Box>
-            <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Update Book</Button>
-            <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Cancel</Button> 
-        </div>
+            <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Add Book</Button> 
+            </div>
 
     </div>
     </div>
     )
-
 }
-// }
