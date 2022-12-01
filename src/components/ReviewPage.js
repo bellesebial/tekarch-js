@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Card, CardMedia, Grid, Typography, Stack, Breadcrumbs, Rating } from '@mui/material';
-import Link from '@mui/material/Link';
+import {Link} from 'react-router-dom';
+import NavBar from './NavBar';
 
 function handleClick(event) {
     event.preventDefault();
@@ -10,9 +11,10 @@ function handleClick(event) {
 export default function ReviewPage() {
     const [value, setValue] = React.useState(2);
     const breadcrumbs = [
-        <Link underline="hover" key="1" color="orange" href="/" variant="h5" onClick={handleClick}>User's Review</Link>,
-      ];
+        <Link to="/review" style={{ fontSize: 20, color: 'orange' }} >User's Review</Link>
+    ];
   return (
+    <><NavBar />
     <><Stack spacing={2} sx={{ marginLeft: 10, marginTop: 5 }}>
           <Breadcrumbs
               aria-label="breadcrumb"
@@ -20,7 +22,7 @@ export default function ReviewPage() {
               {breadcrumbs}
           </Breadcrumbs>
       </Stack>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 4, md: 3 }}>
+          <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 4, md: 3 }}>
               <Grid item xs={2.5}>
                   <Typography
                       variant="h4"
@@ -39,6 +41,7 @@ export default function ReviewPage() {
                   </Typography>
                   <Card sx={{ width: 200, marginLeft: 12, marginBottom: '1rem', marginTop: 5, backgroundColor: 'white', color: 'black' }}>
                       <CardMedia
+                            image="/images/uglylove.jpeg"
                           component="img"
                           height="250"
                           alt="book cover" />
@@ -60,6 +63,7 @@ export default function ReviewPage() {
                       }}
                   >Title
                   </Typography>
+                  <Typography component="div" variant="h5" sx={{marginTop:5, color:"grey"}}> Ugly Love</Typography>
               </Grid>
               <Grid item xs={2}>
                   <Typography
@@ -77,6 +81,7 @@ export default function ReviewPage() {
                       }}
                   >Author
                   </Typography>
+                  <Typography component="div" variant="h5" sx={{marginTop:5, color:"grey"}}>Colleen Hover</Typography>
               </Grid>
               <Grid item xs={2}>
                   <Typography
@@ -94,12 +99,12 @@ export default function ReviewPage() {
                       }}
                   >Rating
                   </Typography>
-                  <Rating sx={{marginTop:5}}
-                    name="simple-controlled"
-                    value={value}
-                    onChange={(event, newValue) => {
-                    setValue(newValue);
-                    }}/>
+                  <Rating sx={{ marginTop: 5 }}
+                      name="simple-controlled"
+                      value={value}
+                      onChange={(event, newValue) => {
+                          setValue(newValue);
+                      } } />
               </Grid>
               <Grid item xs={2}>
                   <Typography
@@ -120,9 +125,9 @@ export default function ReviewPage() {
                   </Typography>
                   <br />
                   <br />
-                  <Link sx={{ fontSize: 20, color: 'orange' }}>Write a Review</Link> <br />
-                  <Link sx={{ fontSize: 20, color: 'orange' }}>Update a Review</Link>
+                  <Link to="/writeareview" underline="hover" style={{ fontSize: 20, color: 'orange' }}>Write a Review</Link> <br />
+                  <Link to="/updateareview" underline="hover" style={{ fontSize: 20, color: 'orange' }}>Update a Review</Link>
               </Grid>
-          </Grid></>
+          </Grid></></>
   );
 }
