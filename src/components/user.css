@@ -1,0 +1,28 @@
+.main{
+    background-image: url(/src/images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sub{
+    background-color: rgba(255, 255, 255, 0.963);
+    height: 580px;
+    width: 35%;
+    justify-content: center;
+    
+}
+
+.welcome{
+    padding: 70px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.signsub{
+    background-color: rgba(255, 255, 255, 0.963);
+    height: 540px;
+    width: 35%;
+    justify-content: center;
+   padding-top: 40px;
+}
