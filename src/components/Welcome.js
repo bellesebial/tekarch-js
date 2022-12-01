@@ -3,7 +3,6 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import './user.css';
 import {Link} from 'react-router-dom';
-import { color } from '@mui/system';
 
 
 export default function Welcome (){

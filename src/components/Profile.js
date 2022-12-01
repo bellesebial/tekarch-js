@@ -1,12 +1,14 @@
 import Button from '@mui/material/Button';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
+import NavBar from './NavBar';
 
 
 const table = {
     border: '1px solid',
     borderCollapse: 'collapse',
-    marginTop: '40px',
-    marginLeft: '40px'
+    marginTop: '400px',
+    marginLeft: '-1300px',
+    color: 'black'
 }
 
 const rows = {
@@ -23,7 +25,11 @@ const title = {
     color: 'orange'
 }
 
-
+const buttons ={
+    marginTop: '700px',
+    marginLeft: '-1200px',
+    
+}
 
 
 
@@ -31,7 +37,7 @@ const title = {
 export default function SignUp(){
     return (
         <header>
-
+        <NavBar />
         <div>
             <table style={table}>
                 <tr>
@@ -68,7 +74,7 @@ export default function SignUp(){
         </div>
 
         
-        <div className='buttons'>
+        <div style={buttons}>
         <Button sx={{backgroundColor: 'rgb(255, 113, 47)', margin: '4px'}} variant="contained" >Change Password</Button>
         <br></br>
         <Button sx={{backgroundColor: 'rgb(255, 113, 47)', margin: '4px'}} variant="contained" >Delete Account</Button>
