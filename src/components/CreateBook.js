@@ -17,7 +17,6 @@ const Create = {
 export default function CreateBook(){
     return (
         <><NavBar />
-        {/* <div role="presentation" onClick={handleClick}> */}
         <div>
             <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
               <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/tbrlist">

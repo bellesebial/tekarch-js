@@ -9,15 +9,20 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import NavBar from './NavBar';
+import SearchBar from './SearchBar';
+import TextField from '@mui/material/TextField';
 
 function TbrList() {
   return (
        <><NavBar />
     <div className='background'>
-       <div>
-       
+    <div className="search">
+        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
+        <SearchBar/>
+    </div>
+    <div>
       <Card sx={{ textAlign: 'left', width: 300, height: 310, 
-            marginLeft: 4, marginRight: 4, marginBottom: '2rem', 
+            marginLeft: 4, marginRight: 4, marginBottom: '2rem', marginTop: '0%',
             backgroundColor: 'white', color: 'black'  }}>
       <CardMedia 
         component="img"

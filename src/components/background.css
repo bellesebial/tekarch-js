@@ -20,9 +20,16 @@
 
 .fab{
     display: flex;
-    justify-content: space-around;
-    color:blue;
+    color:rgb(110, 110, 110);
     font-size: 18px;
     height: 100px;
     width: 100px;
+    justify-content: space-between;
+}
+
+.search {
+    width: 70%;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
 }
