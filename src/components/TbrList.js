@@ -15,10 +15,10 @@ function TbrList() {
   return (
        <><NavBar />
     <div className='background'>
-       <div className='card'>
+       <div>
        
       <Card sx={{ textAlign: 'left', width: 300, height: 310, 
-            marginLeft: 4, marginRight: 4, marginBottom: '2rem', marginTop: '2rem', 
+            marginLeft: 4, marginRight: 4, marginBottom: '2rem', 
             backgroundColor: 'white', color: 'black'  }}>
       <CardMedia 
         component="img"
@@ -43,7 +43,7 @@ function TbrList() {
       </CardActions>
     </Card>
     </div>  
-      <Fab color="primary" aria-label="add">
+      <Fab sx={{ width: 100, height: 100}} color="primary" aria-label="add">
         <AddIcon />
         <Link to="/createbook" style={{textDecoration:'inherit', color: 'orange'}}></Link> <br></br>
       </Fab>
