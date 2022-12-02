@@ -55,7 +55,7 @@ export default function WriteAReview() {
                   </Typography>
               </Grid>
               <Grid item xs={2} sx={{ marginTop: 5 }}>
-                  <Typography sx={{ display: 'center', alignContent: 'left' }}>What did you think?</Typography>
+                  <Typography  variant="h5" sx={{ display: 'center', alignContent: 'left' }}>What did you think?</Typography>
                   <Box sx={{ display: 'left', flexDirection: 'row' }}>
                       <TextField variant="outlined" multiline rows={9} sx={{ width: 600 }} />
                   </Box>
