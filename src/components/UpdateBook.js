@@ -2,44 +2,25 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useRef, useState } from 'react';
-import { Breadcrumbs, Link } from '@mui/material';
+import { Breadcrumbs, Link, Grid } from '@mui/material';
+import NavBar from './NavBar';
 
-// const update: CSS.Properties = {
-//     float: 'left',
-//     padding: '40px',
-//     textAlign: 'left',
-//     justifyContent: 'left',
-//     alignItems: 'center'
-
-// }
-
-// const link: CSS.Properties = {
-//     color: 'orange',
-//     fontSize: '12px',
-//     alignItems: 'left'
-// }
-
-// function handleClick(event: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-//     event.preventDefault();
-//     console.info('You clicked a breadcrumb.');
-//   }
-
-export default function UpdateBook(){
+export default function CreateBook(){
     return (
-        // <div role="presentation" onClick={handleClick}>
+        <><NavBar />
+        {/* <div role="presentation" onClick={handleClick}> */}
         <div>
             <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
-              <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/TeknoyArchive/Update">
+              <Link color="black" fontSize={25} fontWeight={10} underline="hover" href="/TeknoyArchive/Create">
                   Teknoy Archives
               </Link>
               <Link color="orange" fontSize={25} fontWeight={10} underline="hover" href="/">
-                  Update Review
+                  Create Review
               </Link>
           </Breadcrumbs> 
     <div>
-        {/* <div className="update" style={update}> */}
         <div>
+
             <Box
             component="form"
             sx={{'& > :not(style)': { m: 1, width: '25ch'}}}
@@ -58,15 +39,17 @@ export default function UpdateBook(){
             Enter Genre
             <TextField id="outlined-basic" label="Enter Genre" variant="outlined" color='success'/> <br></br>
             Enter Synopsis
-            <TextField id="outlined-basic" label="Enter Synopsis" variant="outlined" color='success'/> <br></br>
+            <Grid item xs={2} sx={{marginTop:5}}>
+                      <Box sx={{ display: 'left', flexDirection: 'row' }}>
+                          <TextField variant="outlined" multiline rows={9} sx={{ width: 600 }} />
+                      </Box>
+              </Grid>
             </Box>
             <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Update Book</Button>
             <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4}} variant="contained">Cancel</Button> 
         </div>
 
     </div>
-    </div>
+    </div></>
     )
-
 }
-// }

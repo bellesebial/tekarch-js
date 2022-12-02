@@ -1,0 +1,17 @@
+.background {
+    background-image: url(/src/images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 770px;
+    margin-top: 0px;
+}
+
+.create {
+    min-height: 100vh;
+    display: 'flexbox';
+    flex-direction: column;
+    align-items: left;
+    text-Align: 'left';
+    padding: 20px;
+}
