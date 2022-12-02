@@ -22,7 +22,7 @@ function TbrList() {
             backgroundColor: 'white', color: 'black'  }}>
       <CardMedia 
         component="img"
-        alt="green iguana"
+        alt="/"
         height="140"
         image="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1637012564"
       />
@@ -43,8 +43,8 @@ function TbrList() {
       </CardActions>
     </Card>
     </div>  
-      <Fab sx={{ width: 100, height: 100}} color="primary" aria-label="add">
-        <AddIcon />
+      <Fab sx={{ width: 100, height: 100}}  color="primary" aria-label="add">
+        <AddIcon class='fab'/>
         <Link to="/createbook" style={{textDecoration:'inherit', color: 'orange'}}></Link> <br></br>
       </Fab>
       </div></>

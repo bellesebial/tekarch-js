@@ -15,3 +15,12 @@
     text-Align: 'left';
     padding: 20px;
 }
+
+.fab{
+    display: flex;
+    justify-content: space-around;
+    color:blue;
+    font-size: 18px;
+    height: 100px;
+    width: 100px;
+}
