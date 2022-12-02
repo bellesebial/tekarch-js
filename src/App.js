@@ -9,6 +9,9 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import CreateBook from './components/CreateBook';
 import UpdateBook from './components/UpdateBook';
 import TbrList from './components/TbrList';
+import ReviewPage from './components/ReviewPage';
+import WriteAReview from './components/WriteAReview';
+import UpdateAReview from './components/UpdateAReview';
 
 function App() {
   return (
@@ -22,7 +25,9 @@ function App() {
           <Route path='/tbrlist' element={<TbrList/>}/>
           <Route path='/createbook' element={<CreateBook/>}/>
           <Route path='/updatebook' element={<UpdateBook/>}/>
-
+          <Route path='/review' element={<ReviewPage/>}/>
+          <Route path='/writeareview' element={<WriteAReview/>}/>
+          <Route path='/updateareview' element={<UpdateAReview/>}/>
         </Routes>
       </Router>
     </div>
