@@ -38,14 +38,13 @@ function TbrList() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="Medium">Update</Button>
+        <Button size="Medium" href="/updatebook">Update</Button>
         <Button size="Medium">Delete</Button>
       </CardActions>
     </Card>
     </div>  
-      <Fab sx={{ width: 100, height: 100}}  color="primary" aria-label="add">
+      <Fab sx={{ width: 100, height: 100}} color="primary" aria-label="add" href="/createbook">
         <AddIcon class='fab'/>
-        <Link to="/createbook" style={{textDecoration:'inherit', color: 'orange'}}></Link> <br></br>
       </Fab>
       </div></>
 

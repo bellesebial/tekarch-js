@@ -8,12 +8,14 @@
 }
 
 .create {
+    float: left;
     min-height: 100vh;
     display: 'flexbox';
     flex-direction: column;
+    justify-content: left;
     align-items: left;
     text-Align: 'left';
-    padding: 20px;
+    padding: 40px;
 }
 
 .fab{
