@@ -1,6 +1,7 @@
 import Button from '@mui/material/Button';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import NavBar from './NavBar';
+import {Link} from 'react-router-dom';
 
 
 const table = {
@@ -75,9 +76,15 @@ export default function SignUp(){
 
         
         <div style={buttons}>
+        <Link to="/changepass" style={{textDecoration:'inherit'}}>
         <Button sx={{backgroundColor: 'rgb(255, 113, 47)', margin: '4px'}} variant="contained" >Change Password</Button>
+        </Link>
+        
         <br></br>
+        <Link to="/deleteacc" style={{textDecoration:'inherit'}}>
         <Button sx={{backgroundColor: 'rgb(255, 113, 47)', margin: '4px'}} variant="contained" >Delete Account</Button>
+        </Link>
+
         </div>
         
         </header>
