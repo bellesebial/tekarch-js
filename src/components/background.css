@@ -1,0 +1,35 @@
+.background {
+    background-image: url(/src/images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 800px;
+    margin-top: 0px;
+}
+
+.create {
+    float: left;
+    min-height: 100vh;
+    display: 'flexbox';
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    text-Align: 'left';
+    padding: 40px;
+}
+
+.fab{
+    display: flex;
+    color:rgb(110, 110, 110);
+    font-size: 18px;
+    height: 100px;
+    width: 100px;
+    justify-content: space-between;
+}
+
+.search {
+    width: 70%;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: center;
+}

@@ -1,5 +1,5 @@
-import './App.css';
 import * as React from 'react';
+import './background.css';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Card from '@mui/material/Card';
@@ -8,69 +8,51 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import NavBar from './NavBar';
+import SearchBar from './SearchBar';
+import TextField from '@mui/material/TextField';
 
-
-function App() {
-
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
+function TbrList() {
   return (
-    <div className="App">
-
-      <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
+       <><NavBar />
+    <div className='background'>
+    <div className="search">
+        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
+        <SearchBar/>
+    </div>
+    <div>
+      <Card sx={{ textAlign: 'left', width: 300, height: 310, 
+            marginLeft: 4, marginRight: 4, marginBottom: '2rem', marginTop: '0%',
+            backgroundColor: 'white', color: 'black'  }}>
+      <CardMedia 
         component="img"
-        alt="green iguana"
+        alt="/"
         height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/contemporary-fiction-night-time-book-cover-design-template-1be47835c3058eb42211574e0c4ed8bf_screen.jpg?ts=1637012564"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          Lizard
+          Title
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+          Author | Published
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Synopsis
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="Medium">Update</Button>
+        <Button size="Medium" href="/updatebook">Update</Button>
         <Button size="Medium">Delete</Button>
       </CardActions>
     </Card>
-      <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image="/static/images/cards/contemplative-reptile.jpg"
-      />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="Medium">Update</Button>
-        <Button size="Medium">Delete</Button>
-      </CardActions>
-    </Card>
-      <Fab color="primary" aria-label="add">
-        <AddIcon />
+    </div>  
+      <Fab sx={{ width: 100, height: 100}} color="primary" aria-label="add" href="/createbook">
+        <AddIcon class='fab'/>
       </Fab>
-      </div>
+      </div></>
+
   );
 }
 
-export default App;
+export default TbrList;
