@@ -11,13 +11,19 @@ export default function Welcome (){
 
   let history = useNavigate();
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-  const[accounts,setAccount] = useState([])
+  const[accounts,setAccount] = useState([]);
+  const[accountlogin,setAccountlogin] = useState({
+    username:"",
+    password:""
+  });
+  const{username,password}=accountlogin
+  const onInputChange=(e)=>{
+    setAccountlogin({ ...accountlogin,[e.target.name]: e.target.value});
+  };
+
 
   const onSubmit=async(e)=>{
     e.preventDefault();
-    const account={username,password}
     try{
       const result = await axios.get(`http://localhost:8080/user/userlogin?username=${username}`);
       setAccount(result.data);
@@ -25,12 +31,12 @@ export default function Welcome (){
       if((result.data)!=null){
         
         if((result.data.password)==[password]){
-          history(`./CustomerHP/${account.username}`);
+          history(`./dashboard`);
         }else{alert("Incorrect Password");}
-      }else{alert("ID Number" + [username]+ "does not exist!");}
+      }else{alert("User" + [username]+ "does not exist!");}
       
     }catch(e){
-      console.log("ID Number" + [username]+ "does not exist!");
+      console.log("User" + [username]+ "does not exist!");
     }
   }
 
@@ -40,44 +46,19 @@ export default function Welcome (){
             <div className="welcome"> <h1>Welcome back Teknoy!</h1>
             </div>
 
-    <Box
-    className='box'
-      component="form"
-      sx={{'& > :not(style)': { m: 1, width: '25ch'}, justifyContent: 'center', marginTop: '-40px'}}
-      noValidate
-      autoComplete="off"
-    >
-        <TextField id="outlined-basic"
-        label="Username"
-        variant="outlined"
-        color='success'
-        value={username}
-        onChange={(e)=>setUsername(e.target.value)}
-        required
-        /> 
-        <br></br>
+        <label>Username</label><br/>
+        <input type="text" name="username" label="Username" placeholder='Enter Username' value={username} onChange={(e)=>onInputChange(e)}/><br/>
+        <p>{username}</p>
+        <label>Password</label><br/>
+        <input type="password" name="password" label="Password" placeholder='Enter Password' value={password} onChange={(e)=>onInputChange(e)}/><br/>
+        
+        <Link to={'/dashboard'}>
+        <input className="btn1" type="submit" name="btnLogin" label="btnLogin" value="Login" onClick={(e)=>onSubmit(e)}/>
+        </Link><br/>
 
-
-        <TextField id="outlined-basic"
-        label="Password"
-        type="password"
-        variant="outlined"
-        color='success'
-        value={password}
-        onChange={(e)=>setPassword(e.target.value)}
-        required
-        /> 
-        <br></br> <br></br>
-        
-        
-        <Link to="/signup" style={{textDecoration:'inherit', color: 'orange'}}>Sign Up Here</Link> <br></br>
-        <br></br>
-        <Link to = {"/dashboard"} style={{textDecoration:'inherit'}}> <Button sx={{backgroundColor: 'rgb(255, 113, 47)', width:'120px'}} variant="contained"
-        onClick={(e)=>onsubmit(e)}
-        >Log In</Button>
-        </Link> 
-        
-                </Box>
+        <Link to={'/signup'}>
+        <input type="submit" name="btnCreateAcc" label="btnCreateAcc" value="Create Account"/>
+        </Link>
             </div>
         </div>
 
