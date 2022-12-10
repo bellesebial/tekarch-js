@@ -11,6 +11,8 @@ import TbrList from './components/TbrList';
 import ReviewPage from './components/ReviewPage';
 import WriteAReview from './components/WriteAReview';
 import UpdateAReview from './components/UpdateAReview';
+import DeleteAcc from './components/DeleteAcc';
+import ChangePass from './components/ChangePass';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path='/signup' element={<SignUp/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
           <Route path='/profile' element={<Profile/>}/>
+          <Route path='/deleteacc' element={<DeleteAcc/>}/>
+          <Route path='/changepass' element={<ChangePass/>}/>
           <Route path='/tbrlist' element={<TbrList/>}/>
           <Route path='/createbook' element={<CreateBook/>}/>
           <Route path='/updatebook' element={<UpdateBook/>}/>

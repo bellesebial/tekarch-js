@@ -9,7 +9,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import NavBar from './NavBar';
-import SearchBar from './SearchBar';
 import TextField from '@mui/material/TextField';
 
 function TbrList() {
@@ -18,7 +17,6 @@ function TbrList() {
     <div className='background'>
     <div className="search">
         <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
-        <SearchBar/>
     </div>
     <div>
       <Card sx={{ textAlign: 'left', width: 300, height: 310, 
