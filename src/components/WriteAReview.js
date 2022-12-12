@@ -1,31 +1,40 @@
 import * as React from 'react';
 import { Box, Breadcrumbs, Button, Card, CardContent, CardMedia, Grid, Stack, TextField, Typography, Rating} from '@mui/material';
-import {Link} from 'react-router-dom';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import {Link, useNavigate} from 'react-router-dom';
 import NavBar from './NavBar';
-
-function handleClick(event) {
-  event.preventDefault();
-  console.info('You clicked a breadcrumb.');
-}
+import { useState } from 'react';
 
 export default function WriteAReview() {
-  const [value, setValue] = React.useState(2);
-  const breadcrumbs = [
-    <Link to="/review" style={{ fontSize: 20, color: 'inherit' }} >User's Review</Link>,
-    <Link to="/writeareview" style={{ fontSize: 20, color: 'orange' }} >Write a Review</Link>
-  ];
+
+  const [review, setReview] = useState('')
+  const [rating, setRating] = useState('')
+
+  let history = useNavigate();
+
+  const handleSubmit =(e) => {
+    e.preventDefault();
+    const rev={review, rating}
+    console.log(rev)
+    fetch("http://localhost:8080/review/postReview",{
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body:JSON.stringify(rev)
+    }).then(()=>{
+      console.log("added")
+      alert("Review successfully added")
+      history("/");
+    })
+    
+}
 
   return (
     <><NavBar />
-    <><Stack spacing={2} sx={{ marginLeft: 10, marginTop: 5 }}>
-          <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="medium" />}
-              aria-label="breadcrumb"
-          >
-              {breadcrumbs}
-          </Breadcrumbs>
-      </Stack>
+        <div>
+        <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
+        <Link to="/reviewpage" style={{ fontSize: 20, color: 'inherit' }} >User's Review</Link>,
+        <Link to="/writeareview" style={{ fontSize: 20, color: 'orange' }} >Write a Review</Link>          
+        </Breadcrumbs>
+        <div>
           <Grid container rowSpacing={2} columnSpacing={{ xs: 2, sm: 4, md: 3 }}>
               <Grid item xs={5}>
                   <Card sx={{ textAlign: 'center', width: 200, marginLeft: 15, marginBottom: '1rem', marginTop: '2rem', backgroundColor: 'white', color: 'black' }}>
@@ -46,23 +55,18 @@ export default function WriteAReview() {
                   </Card>
                   <Typography sx={{ display: 'center', marginLeft: 15, alignItems: 'center', fontSize: 20 }}>Rating:
                       &nbsp;
-                      <Rating
-                          name="simple-controlled"
-                          value={value}
-                          onChange={(event, newValue) => {
-                              setValue(newValue);
-                          } } />
+                      <Rating name="simple-controlled" value={rating} onChange={(e)=>setRating(e.target.value)}/>
                   </Typography>
               </Grid>
               <Grid item xs={2} sx={{ marginTop: 5 }}>
-                  <Typography  variant="h5" sx={{ display: 'center', alignContent: 'left' }}>What did you think?</Typography>
+                  <Typography  variant="h6" sx={{ display: 'center', alignContent: 'left' }}>What did you think?</Typography>
                   <Box sx={{ display: 'left', flexDirection: 'row' }}>
-                      <TextField variant="outlined" multiline rows={9} sx={{ width: 600 }} />
+                      <TextField variant="outlined" multiline rows={9} sx={{ width: 600 }} value={review} onChange={(e)=>setReview(e.target.value)} />
                   </Box>
                   <Stack spacing={2} direction="row" sx={{ marginTop: '1rem' }}>
-                      <Button variant="contained" sx={{ backgroundColor: 'orange' }}>POST</Button>
+                      <Button variant="contained" sx={{ backgroundColor: 'orange' }} onClick={(e)=>handleSubmit(e)}>POST</Button>
                   </Stack>
               </Grid>
-          </Grid></></>
+          </Grid></div></div></>
   );
 }

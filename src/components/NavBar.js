@@ -17,7 +17,7 @@ function Navbar() {
 			<nav ref={navRef} className="nav">
 				<Link to="/dashboard" style={{textDecoration:'inherit'}}>Home</Link>
 				<Link to="/tbrlist">Teknoy Books</Link>
-				<Link to="/review">Reviews</Link>
+				<Link to="/reviewpage">Reviews</Link>
 				<Link to="/profile" style={{textDecoration:'inherit'}}>User</Link>
 				<button
 					className="nav-btn nav-close-btn"

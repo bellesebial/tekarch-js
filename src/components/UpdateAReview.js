@@ -1,31 +1,19 @@
 import * as React from 'react';
 import { Box, Breadcrumbs, Button, Card, CardContent, CardMedia, Grid, Stack, TextField, Typography, Rating } from '@mui/material';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import {Link} from 'react-router-dom';
 import NavBar from './NavBar';
 
-function handleClick(event) {
-  event.preventDefault();
-  console.info('You clicked a breadcrumb.');
-}
-
 export default function WriteAReview() {
   const [value, setValue] = React.useState(2);
-  const breadcrumbs = [
-    <Link to="/review" style={{ fontSize: 20, color: 'inherit' }} >User's Review</Link>,
-    <Link to="/writeareview" style={{ fontSize: 20, color: 'orange' }} >Write a Review</Link>
-  ];
 
   return (
     <><NavBar />
-    <Stack spacing={2} sx={{ marginLeft: 10, marginTop: 5 }}>
-          <Breadcrumbs
-              separator={<NavigateNextIcon fontSize="medium" />}
-              aria-label="breadcrumb"
-          >
-              {breadcrumbs}
-          </Breadcrumbs>
-      </Stack>
+     <div>
+            <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
+            <Link to="/reviewpage" style={{ fontSize: 20, color: 'inherit' }} >User's Review</Link>,
+            <Link to="/updateareview" style={{ fontSize: 20, color: 'orange' }} >Update a Review</Link>  
+          </Breadcrumbs> 
+        <div>
           <Grid container rowSpacing={2} columnSpacing={{ xs: 2, sm: 4, md: 3 }}>
               <Grid item xs={5}>
                   <Card sx={{ textAlign: 'center', width: 200, marginLeft: 15, marginBottom: '1rem', marginTop: '2rem', backgroundColor: 'white', color: 'black' }}>
@@ -63,6 +51,7 @@ export default function WriteAReview() {
                       <Button variant="contained" sx={{ backgroundColor: 'orange' }}>SAVE</Button>
                       <Button variant="contained" sx={{ backgroundColor: 'orange' }}>DELETE</Button>                      </Stack>
               </Grid>
-          </Grid></>
+          </Grid>
+          </div></div></>
   );
 }
