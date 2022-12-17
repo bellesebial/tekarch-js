@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import NavBar from './NavBar';
 import TextField from '@mui/material/TextField';
 import axios from "axios";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function TbrList() {
 
@@ -27,6 +27,11 @@ const loadLists = async () => {
   const result = await axios.get("http://localhost:8080/tbr/getAllBook");
   setList(result.data);
 };
+
+// const updateList=async(id)=>{
+//   await axios.put(`http://localhost:8080/tbr/putBook/${id}`)
+//   loadLists()
+// }
 
 const deleteList=async(id)=>{
   await axios.delete(`http://localhost:8080/tbr/deleteBook/${id}`)
@@ -67,7 +72,11 @@ const deleteList=async(id)=>{
         </Typography>
 
         <CardActions>
-        <Button size="Medium" href="/updatebook">Update</Button>
+        <Button size="Medium" 
+        // href="/updatebook" 
+        to={`/updatebook/${list.id}`}
+        // onClick={()=>updateList(list.id)}
+        >Update</Button>
         <Button size="Medium" onClick={()=>deleteList(list.id)}>Delete</Button>
       </CardActions>
 
