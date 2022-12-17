@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 
 const Update = {
-    float: 'left',
+    float: 'center',
     padding: '40px',
     textAlign: 'left',
     justifyContent: 'left',
