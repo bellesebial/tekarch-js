@@ -111,16 +111,6 @@ export default function UpdateBook() {
             </div>
             </>
     )
-
-
-            {/* <Grid item xs={2} sx={{marginTop:5}}  > */}
-            {/* <Box sx={{ display: 'left', flexDirection: 'row' }}> */}
-
-
-            {/* </Box> */}
-            {/* </Grid> */}
-            {/* </Box> */}
-
 }
 
 

@@ -62,7 +62,7 @@ export default function CreateBook() {
                             autoComplete="off">
 
                             <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                                <div className="mb-3">
+                                <div className="Textfield">
 
                                     <h4>Enter Book Title</h4><br/>
                                     <TextField id="outlined-basic" label="Enter Book Title" variant="outlined" color='success'

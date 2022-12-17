@@ -42,7 +42,7 @@ const deleteList=async(id)=>{
        <><NavBar />
     <div className='background'>
     <div className="search">
-        <TextField id="outlined-basic" variant="outlined" fullWidth label="Search"/>
+        <TextField id="outlined-basic" variant="outlined" fullWidth/>
     </div>
     <div>
       {list.map((list) => (
