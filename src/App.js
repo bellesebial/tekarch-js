@@ -15,6 +15,7 @@ import DeleteAcc from './components/DeleteAcc';
 import ChangePass from './components/ChangePass';
 
 function App() {
+
   return (
     <div className="App">
         <Router>
@@ -27,8 +28,13 @@ function App() {
           <Route path='/changepass' element={<ChangePass/>}/>
           <Route path='/tbrlist' element={<TbrList/>}/>
           <Route path='/createbook' element={<CreateBook/>}/>
+<<<<<<< HEAD
           <Route path='/updatebook/:id' element={<UpdateBook/>}/>
           <Route path='/review' element={<ReviewPage/>}/>
+=======
+          <Route path='/updatebook' element={<UpdateBook/>}/>
+          <Route path='/reviewpage' element={<ReviewPage/>}/>
+>>>>>>> 2e5d97f1175016f9a194ce165ad9e51ddd202c7d
           <Route path='/writeareview' element={<WriteAReview/>}/>
           <Route path='/updateareview' element={<UpdateAReview/>}/>
         </Routes>

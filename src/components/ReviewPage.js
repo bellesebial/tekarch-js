@@ -3,23 +3,16 @@ import { Card, CardMedia, Grid, Typography, Stack, Breadcrumbs, Rating } from '@
 import {Link} from 'react-router-dom';
 import NavBar from './NavBar';
 
-function handleClick(event) {
-    event.preventDefault();
-    console.info('You clicked a breadcrumb.');
-  }
-
 export default function ReviewPage() {
     const [value, setValue] = React.useState(2);
-    const breadcrumbs = [
-        <Link to="/review" style={{ fontSize: 20, color: 'orange' }} >User's Review</Link>
-    ];
+       
   return (
     <><NavBar />
     <><Stack spacing={2} sx={{ marginLeft: 10, marginTop: 5 }}>
           <Breadcrumbs
               aria-label="breadcrumb"
           >
-              {breadcrumbs}
+             <Link style={{ fontSize: 20, color: 'orange' }} underline="hover">User's Review</Link>
           </Breadcrumbs>
       </Stack>
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 4, md: 3 }}>

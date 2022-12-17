@@ -43,12 +43,23 @@ export default function SignUp(){
       noValidate
       autoComplete="off"
     >
-        <TextField id="outlined-basic" label="Username" variant="outlined" color='success' value={username} onChange={(e)=>setUsername(e.target.value)}/> <br></br>
-        <TextField id="outlined-basic" label="Password" variant="outlined" type="password" color='success' value={password} onChange={(e)=>setPassword(e.target.value)}/> <br></br>
-        <TextField id="outlined-basic" label="Program" variant="outlined" color='success' value={program} onChange={(e)=>setProgram(e.target.value)}/> <br></br>
-        <TextField id="outlined-basic" label="Year" variant="outlined" color='success' type="number" value={year} onChange={(e)=>setYear(e.target.value)}/> <br></br>
-        <TextField id="outlined-basic" label="First Name" variant="outlined" color='success' value={firstname} onChange={(e)=>setFirstname(e.target.value)}/> <br></br>
-        <TextField id="outlined-basic" label="Last Name" variant="outlined" color='success' value={lastname} onChange={(e)=>setLastname(e.target.value)}/> <br></br> <br></br>
+        <TextField id="outlined-basic" label="Username" variant="outlined" color='success'
+        value={username} onChange={(e)=>setUsername(e.target.value)} required/> <br></br>
+
+        <TextField id="outlined-basic" label="Password" variant="outlined" type="password" color='success'
+        value={password} onChange={(e)=>setPassword(e.target.value)} required/> <br></br>
+
+        <TextField id="outlined-basic" label="Program" variant="outlined" color='success'
+        value={program} onChange={(e)=>setProgram(e.target.value)} required/> <br></br>
+
+        <TextField id="outlined-basic" label="Year" variant="outlined" color='success' type="number"
+        value={year} onChange={(e)=>setYear(e.target.value)} required/> <br></br>
+
+        <TextField id="outlined-basic" label="First Name" variant="outlined" color='success'
+        value={firstname} onChange={(e)=>setFirstname(e.target.value)} required/> <br></br>
+
+        <TextField id="outlined-basic" label="Last Name" variant="outlined" color='success'
+        value={lastname} onChange={(e)=>setLastname(e.target.value)} required/> <br></br> <br></br>
         
         <Link to="/" style={{textDecoration:'inherit'}}><Button variant="contained" style={{backgroundColor: 'rgb(255, 113, 47)', width:'200px'}} onClick={(e)=>handleSubmit(e)}>Sign Up</Button>
         </Link>
