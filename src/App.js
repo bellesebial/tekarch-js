@@ -11,8 +11,11 @@ import TbrList from './components/TbrList';
 import ReviewPage from './components/ReviewPage';
 import WriteAReview from './components/WriteAReview';
 import UpdateAReview from './components/UpdateAReview';
+<<<<<<< Updated upstream
 import DeleteAcc from './components/DeleteAcc';
 import ChangePass from './components/ChangePass';
+=======
+>>>>>>> Stashed changes
 
 function App() {
 
@@ -31,7 +34,11 @@ function App() {
           <Route path='/updatebook/:id' element={<UpdateBook/>}/>
           <Route path='/review' element={<ReviewPage/>}/>
           <Route path='/updatebook' element={<UpdateBook/>}/>
+<<<<<<< Updated upstream
           <Route path='/reviewpage' element={<ReviewPage/>}/>
+=======
+          <Route path='/review' element={<ReviewPage/>}/>
+>>>>>>> Stashed changes
           <Route path='/writeareview' element={<WriteAReview/>}/>
           <Route path='/updateareview' element={<UpdateAReview/>}/>
         </Routes>
