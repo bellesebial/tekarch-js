@@ -29,10 +29,8 @@ function App() {
           <Route path='/tbrlist' element={<TbrList/>}/>
           <Route path='/createbook' element={<CreateBook/>}/>
           <Route path='/updatebook/:id' element={<UpdateBook/>}/>
-          <Route path='/review' element={<ReviewPage/>}/>
           <Route path='/updatebook' element={<UpdateBook/>}/>
           <Route path='/reviewpage' element={<ReviewPage/>}/>
-          <Route path='/review' element={<ReviewPage/>}/>
           <Route path='/writeareview' element={<WriteAReview/>}/>
           <Route path='/updateareview' element={<UpdateAReview/>}/>
         </Routes>
