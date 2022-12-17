@@ -15,6 +15,7 @@ import DeleteAcc from './components/DeleteAcc';
 import ChangePass from './components/ChangePass';
 
 function App() {
+
   return (
     <div className="App">
         <Router>

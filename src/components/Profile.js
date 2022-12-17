@@ -1,14 +1,19 @@
-import Button from '@mui/material/Button';
 import FingerprintIcon from '@mui/icons-material/Fingerprint';
 import NavBar from './NavBar';
-import {Link} from 'react-router-dom';
+import ChangePass from './ChangePass';
+import { useEffect, useState } from 'react'
+import './popup.css';
+import DeleteAcc from './DeleteAcc';
+import {Link, useParams} from 'react-router-dom';
+import axios from 'axios';
+
 
 
 const table = {
     border: '1px solid',
     borderCollapse: 'collapse',
     marginTop: '400px',
-    marginLeft: '-1300px',
+    marginLeft: '0px',
     color: 'black'
 }
 
@@ -26,67 +31,90 @@ const title = {
     color: 'orange'
 }
 
-const buttons ={
-    marginTop: '700px',
-    marginLeft: '-1200px',
-    
+
+export default function SignUp(){
+const [btn, setBtn] = useState(false);
+const [del, setDel] = useState(false);
+const[accounts,setAccount] = useState([]);
+
+ 
+
+  useEffect(() => {
+    loadUser();
+  }, []);
+
+const who = sessionStorage.getItem('usernamesess');
+
+const loadUser = async () => {
+    try{
+      const result = await axios.get(`http://localhost:8080/user/userlogin?username=${who}`);
+      setAccount(result.data);
+    }
+    catch(e){
+        console.log("Error");
+    }
 }
 
 
+const logout = () => {
+    sessionStorage.removeItem('usernamesess')
+}
 
-
-export default function SignUp(){
     return (
-        <header>
+
+        <div className='navbar'>
         <NavBar />
-        <div>
+
+        <div className='table'>
             <table style={table}>
+                <thead>
                 <tr>
-                    <td style={title}><FingerprintIcon fontSize='large'/> User Information </td>
+                    <td style={title} className='tabletitle'><FingerprintIcon fontSize='large'/> User Information </td>
                 </tr>
 
 
                 <tr>
                     <td style={rows}>Username</td>
-                    <td style={rows}>Hotdog21</td>
+                    <td style={rows}>{accounts.username}</td>
                 </tr>
 
                 <tr>
                     <td style={rows}>Program</td>
-                    <td style={rows}>BSIT</td>
+                    <td style={rows}>{accounts.program}</td>
                 </tr>
 
                 <tr >
                     <td style={rows}>Year</td>
-                    <td style={rows}>4</td>
+                    <td style={rows}>{accounts.year}</td>
                 </tr>
 
                 <tr>
                     <td style={rows}>First Name</td>
-                    <td style={rows}>Brent</td>
+                    <td style={rows}>{accounts.firstname}</td>
                 </tr>
 
                 <tr>
                     <td style={rows}>Last Name</td>
-                    <td style={rows}>Faiyaz</td>
+                    <td style={rows}>{accounts.lastname}</td>
                 </tr>
-                
+                </thead>
             </table>
-        </div>
+            </div>
+            <br></br>
 
-        
-        <div style={buttons}>
-        <Link to="/changepass" style={{textDecoration:'inherit'}}>
-        <Button sx={{backgroundColor: 'rgb(255, 113, 47)', margin: '4px'}} variant="contained" >Change Password</Button>
-        </Link>
+        <div className='buttons'>
+        <button onClick={() => setBtn(true)} className='change'>Change Password</button>
+        <ChangePass trigger={btn} setTrigger={setBtn}>
+        </ChangePass>
+
         
         <br></br>
-        <Link to="/deleteacc" style={{textDecoration:'inherit'}}>
-        <Button sx={{backgroundColor: 'rgb(255, 113, 47)', margin: '4px'}} variant="contained" >Delete Account</Button>
-        </Link>
+        <button onClick={() => setDel(true)} className='change'>Delete Account</button>
+        <DeleteAcc trigger={del} setTrigger={setDel}/>
+
+        <Link to = "/"><button className='change' onClick={logout}>Log Out</button></Link>
 
         </div>
-        
-        </header>
+        </div>
     )
 }

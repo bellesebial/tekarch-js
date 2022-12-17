@@ -34,6 +34,8 @@ const Dashboard = () => {
         fontSize: '14px'
     }
 
+
+
     return (
         <div>
         <NavBar />
