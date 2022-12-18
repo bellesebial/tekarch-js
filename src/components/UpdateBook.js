@@ -5,7 +5,7 @@ import { Breadcrumbs, Link} from '@mui/material';
 import NavBar from './NavBar';
 import {useState } from 'react';
 import TextField from '@mui/material/TextField';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate, useParams} from 'react-router-dom';
 
 
 const Update = {
@@ -32,7 +32,7 @@ export default function UpdateBook() {
         e.preventDefault();
         const book = { image, title, author, published, genre, synopsis }
         console.log(book)
-        fetch("http://localhost:8080/tbr/putBook/{id}", {
+        fetch("http://localhost:8080/tbr/putBook", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(book)
@@ -91,7 +91,8 @@ export default function UpdateBook() {
 
 
                                 <Link to="/tbrlist" style={{ textDecoration: 'inherit' }}>
-                                    <Button variant="contained" sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4, marginTop: 3, marginBottom: 3 }} onClick={(e) => handleSubmit(e)}>Update Book</Button>
+                                    <Button variant="contained" sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4, marginTop: 3, marginBottom: 3 }} 
+                                    onClick={(e) => handleSubmit(e)}>Update Book</Button>
                                 </Link>
                                 <Button sx={{ width: 150, height: 50, marginLeft: 4, marginRight: 4 }} variant="contained" href="/tbrlist">Cancel</Button>
 
