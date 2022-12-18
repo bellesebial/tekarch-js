@@ -72,11 +72,7 @@ const deleteList=async(id)=>{
         </Typography>
 
         <CardActions>
-        <Button size="Medium" 
-        href="/updatebook" 
-        // to={`/updatebook/${list.id}`}
-        // onClick={()=>updateList(list.id)}
-        >Update</Button>
+        <Button size="Medium" href="/updatebook">Update</Button>
         <Button size="Medium" onClick={()=>deleteList(list.id)}>Delete</Button>
       </CardActions>
 
