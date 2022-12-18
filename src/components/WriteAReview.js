@@ -1,15 +1,25 @@
 import * as React from 'react';
-import { Box, Breadcrumbs, Button, Card, CardContent, CardMedia, Grid, Stack, TextField, Typography, Rating} from '@mui/material';
-import {Link, useNavigate} from 'react-router-dom';
+import { Box, Breadcrumbs, Card, CardContent, CardMedia, Grid, Stack, TextField, Typography, Rating, Link} from '@mui/material';
+import { useNavigate} from 'react-router-dom';
 import NavBar from './NavBar';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import './style.css';
+import axios from 'axios';
 
 export default function WriteAReview() {
-
   const [review, setReview] = useState('')
   const [rating, setRating] = useState('')
 
   let history = useNavigate();
+
+  useEffect(() => {
+    loadReviews();
+},[]);
+
+const loadReviews = async () => {
+  const result = await axios.get("http://localhost:8080/review/getAllReview");
+  setReview(result.data);
+};
 
   const handleSubmit =(e) => {
     e.preventDefault();
@@ -30,9 +40,9 @@ export default function WriteAReview() {
   return (
     <><NavBar />
         <div>
-        <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 2, marginLeft: 4 }}>
-        <Link to="/reviewpage" style={{ fontSize: 20, color: 'inherit' }} >User's Review</Link>,
-        <Link to="/writeareview" style={{ fontSize: 20, color: 'orange' }} >Write a Review</Link>          
+        <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 4, marginLeft: 8 }}>
+        <Link color="black" fontSize={23} fontWeight={10} underline="hover" href="/reviewpage">User's Review</Link>
+        <Link color="orange" fontSize={23} fontWeight={10} underline="hover" href="/writeareview">Write a Review</Link>
         </Breadcrumbs>
         <div>
           <Grid container rowSpacing={2} columnSpacing={{ xs: 2, sm: 4, md: 3 }}>
@@ -55,18 +65,16 @@ export default function WriteAReview() {
                   </Card>
                   <Typography sx={{ display: 'center', marginLeft: 15, alignItems: 'center', fontSize: 20 }}>Rating:
                       &nbsp;
-                      <Rating name="simple-controlled" value={rating} onChange={(e)=>setRating(e.target.value)}/>
+                      <Rating name="simple-controlled" value={review.rating} onChange={(e)=>setRating(e.target.value)}/>
                   </Typography>
               </Grid>
               <Grid item xs={2} sx={{ marginTop: 5 }}>
-
                   <Typography  variant="h6" sx={{ display: 'center', alignContent: 'left' }}>What did you think?</Typography>
-                  <Typography  variant="h5" sx={{ display: 'center', alignContent: 'left' }}>What did you think?</Typography>
                   <Box sx={{ display: 'left', flexDirection: 'row' }}>
-                      <TextField variant="outlined" multiline rows={9} sx={{ width: 600 }} value={review} onChange={(e)=>setReview(e.target.value)} />
+                      <TextField variant="outlined" multiline rows={9} sx={{ width: 600 }} value={review.review} onChange={(e)=>setReview(e.target.value)} />
                   </Box>
                   <Stack spacing={2} direction="row" sx={{ marginTop: '1rem' }}>
-                      <Button variant="contained" sx={{ backgroundColor: 'orange' }} onClick={(e)=>handleSubmit(e)}>POST</Button>
+                  <Link to={'/reviewpage'}><input className="btn" type="submit" name="btnPost" label="btnPost" value="POST" onClick={(e)=>handleSubmit(e)}/></Link>
                   </Stack>
               </Grid>
           </Grid></div></div></>

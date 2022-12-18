@@ -1,37 +1,57 @@
-import * as React from 'react';
-import { Card, CardMedia, Grid, Typography, Stack, Breadcrumbs, Rating } from '@mui/material';
-import {Link} from 'react-router-dom';
+import { Card, CardMedia, Grid, Typography, Stack, Breadcrumbs, Rating, Link, Box } from '@mui/material';
 import NavBar from './NavBar';
+import './style.css';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 
 export default function ReviewPage() {
-    const [value, setValue] = React.useState(2);
-       
+    const [review, setReview] = useState([]);
+    const [rating, setRating] = useState('');   
+    const [list,setList]=useState([])
+
+    useEffect(() => {
+        loadReviews();
+        loadLists();
+    },[]);
+
+    const loadReviews = async () => {
+        const resultR = await axios.get("http://localhost:8080/review/getAllReview");
+        setReview(resultR.data);
+      };
+    
+    const loadLists = async () => {
+     const resultB = await axios.get("http://localhost:8080/tbr/getAllBook");
+     setList(resultB.data);
+    };
+
   return (
     <><NavBar />
-    <><Stack spacing={2} sx={{ marginLeft: 10, marginTop: 5 }}>
-          <Breadcrumbs
-              aria-label="breadcrumb"
-          >
-             <Link style={{ fontSize: 20, color: 'orange' }} underline="hover">User's Review</Link>
+    <div>
+         <Breadcrumbs separator=">" aria-label="breadcrumb" sx={{ marginTop: 4, marginLeft: 8 }}>
+          <Link color="orange" fontSize={23} fontWeight={10} underline="hover" href="/reviewpage">User's Review</Link>
           </Breadcrumbs>
-      </Stack>
+    </div>
+    <div>
+    <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 4, md: 3 }}>
+    <Typography variant="h5" component="a"
+                    sx={{ mr: 2, display:{xs:'flex',md:'flex'}, fontFamily: 'inherit', fontWeight: 40, fontSize: 25, color: '', marginLeft: 19, marginTop: 4}}>
+                  Book Cover</Typography>
+    <Typography variant="h5" component="a"
+                      sx={{ mr: 2, display:{xs:'flex',md:'flex'}, fontFamily: 'inherit', fontWeight: 40, fontSize: 25, color: '', marginLeft: 14, marginTop: 4}}>
+                    Title </Typography>
+     <Typography variant="h5" component="a"
+                    sx={{ mr: 2, display:{xs:'flex',md:'flex'}, fontFamily: 'inherit', fontWeight: 40, fontSize: 25, color: '', marginLeft: 21, marginTop: 4}}>
+                  Author</Typography>
+    <Typography variant="h5" component="a"
+                      sx={{ mr: 2, display:{xs:'flex',md:'flex'}, fontFamily: 'inherit', fontWeight: 40, fontSize: 25, color: '', marginLeft: 19.5, marginTop: 4}}>
+                  Rating</Typography>
+    <Typography variant="h5" component="a"
+                      sx={{ mr: 2, display:{xs:'flex',md:'flex'}, fontFamily: 'inherit', fontWeight: 40, fontSize: 25, color: '', marginLeft: 18, marginTop: 4}}>
+                  Review</Typography>
+    </Grid>
+    {list.map((list) => (
           <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 4, md: 3 }}>
               <Grid item xs={2.5}>
-                  <Typography
-                      variant="h4"
-                      component="a"
-                      sx={{
-                          mr: 2,
-                          display: { xs: 'flex', md: 'flex' },
-                          fontFamily: 'inherit',
-                          fontWeight: 40,
-                          fontSize: 25,
-                          color: '',
-                          marginLeft: 15,
-                          marginTop: 4
-                      }}
-                  >Book Cover
-                  </Typography>
                   <Card sx={{ width: 200, marginLeft: 12, marginBottom: '1rem', marginTop: 5, backgroundColor: 'white', color: 'black' }}>
                       <CardMedia
                             image="/images/uglylove.jpeg"
@@ -41,86 +61,30 @@ export default function ReviewPage() {
                   </Card>
               </Grid>
               <Grid item xs={2}>
-                  <Typography
-                      variant="h4"
-                      component="a"
-                      sx={{
-                          mr: 2,
-                          display: { xs: 'flex', md: 'flex' },
-                          fontFamily: 'inherit',
-                          fontWeight: 40,
-                          fontSize: 25,
-                          color: '',
-                          marginLeft: 8.5,
-                          marginTop: 4
-                      }}
-                  >Title
-                  </Typography>
-                  <Typography component="div" variant="h5" sx={{marginTop:5, color:"grey"}}> Ugly Love</Typography>
+                  <Typography component="div" variant="h5" sx={{marginTop:5, color:"grey"}}>{list.title}</Typography>
               </Grid>
               <Grid item xs={2}>
-                  <Typography
-                      variant="h4"
-                      component="a"
-                      sx={{
-                          mr: 2,
-                          display: { xs: 'flex', md: 'flex' },
-                          fontFamily: 'inherit',
-                          fontWeight: 40,
-                          fontSize: 25,
-                          color: '',
-                          marginLeft: 8.5,
-                          marginTop: 4
-                      }}
-                  >Author
-                  </Typography>
-                  <Typography component="div" variant="h5" sx={{marginTop:5, color:"grey"}}>Colleen Hover</Typography>
+                  <Typography component="div" variant="h5" sx={{marginTop:5, color:"grey"}}>{list.author}</Typography>
               </Grid>
               <Grid item xs={2}>
-                  <Typography
-                      variant="h4"
-                      component="a"
-                      sx={{
-                          mr: 2,
-                          display: { xs: 'flex', md: 'flex' },
-                          fontFamily: 'inherit',
-                          fontWeight: 40,
-                          fontSize: 25,
-                          color: '',
-                          marginLeft: 8.5,
-                          marginTop: 4
-                      }}
-                  >Rating
-                  </Typography>
-                  <Rating sx={{ marginTop: 5 }}
-                      name="simple-controlled"
-                      value={value}
-                      onChange={(event, newValue) => {
-                          setValue(newValue);
-                      } } />
+                  <br/> <br/>
+                  {review.map((review) => (
+                  <Rating name="simple-controlled" value={review.rating} onChange={(e)=>setRating(e.target.value)}></Rating>
+                  ))}
               </Grid>
               <Grid item xs={2}>
-                  <Typography
-                      variant="h4"
-                      component="a"
-                      sx={{
-                          mr: 2,
-                          display: { xs: 'flex', md: 'flex' },
-                          fontFamily: 'inherit',
-                          fontWeight: 40,
-                          fontSize: 25,
-                          color: '',
-                          marginLeft: 8.5,
-                          marginTop: 4,
-                          marginBotton: '10rem'
-                      }}
-                  >Review
-                  </Typography>
                   <br />
                   <br />
-                  <Link to="/writeareview" underline="hover" style={{ fontSize: 20, color: 'orange' }}>Write a Review</Link> <br />
-                  <Link to="/updateareview" underline="hover" style={{ fontSize: 20, color: 'orange' }}>Update a Review</Link>
+                  {review.map((review) => (
+                  <Box marginTop="10" color="grey">{review.review}</Box>
+                  ))}
+                  <br/>
+                  <Link color="orange" fontSize={20} fontWeight={12} underline="hover" href="/writeareview">Write a Review</Link>
+                  <br/>
+                    <Link color="orange" fontSize={20} fontWeight={12} underline="hover" href="/updateareview">Update a Review</Link>
               </Grid>
-          </Grid></></>
-  );
+          </Grid>
+          ))}
+        </div></>
+    );
 }
