@@ -65,28 +65,29 @@ export default function CreateBook() {
                         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
                             <div>
 
-                                <h4>Enter Book Title</h4><br />
-                                <TextField id="outlined-basic" label="Enter Book Title" variant="outlined" color='success'
+                                <h4>Enter Book Title</h4>
+                                <TextField id="outlined-basic" variant="outlined" color='success'
                                     value={title} onChange={(e) => setTitle(e.target.value)} required /> <br /><br />
 
-                                <h4>Enter Author</h4><br />
-                                <TextField id="outlined-basic" label="Enter Author" variant="outlined" color='success'
+                                <h4>Enter Author</h4>
+                                <TextField id="outlined-basic" variant="outlined" color='success'
                                     value={author} onChange={(e) => setAuthor(e.target.value)} required /><br/>
 
-                                <Box component="span" sx={{ p: 10, border: '1px dashed grey', textAlign: 'right', marginLeft: '20rem', marginTop: '10rem' }} value={image}>
+                                <Box component="span" sx={{ p: 10, border: '1px dashed grey', textAlign: 'right', marginLeft: '20rem', marginTop: '10rem' }} 
+                                value={image} onChange={(e) => setImage(e.target.value)} required>
                                     <Button >Upload/Drag the photo here</Button>
                                 </Box>
 
-                                <h4>Enter Date Published</h4><br />
-                                <TextField id="outlined-basic" label="Enter Date Published" variant="outlined" color='success'
+                                <h4>Enter Date Published</h4>
+                                <TextField id="outlined-basic" variant="outlined" color='success'
                                     value={published} onChange={(e) => setPublished(e.target.value)} required /> <br /><br />
 
-                                <h4>Enter Book Genre</h4><br />
-                                <TextField id="outlined-basic" label="Enter Book Genre" variant="outlined" color='success'
+                                <h4>Enter Book Genre</h4>
+                                <TextField id="outlined-basic" variant="outlined" color='success'
                                     value={genre} onChange={(e) => setGenre(e.target.value)} required /> <br /><br />
 
-                                <h4>Enter Synopsis</h4><br />
-                                <TextField id="outlined-basic" label="Enter Synopsis" variant="outlined" color='success'
+                                <h4>Enter Synopsis</h4>
+                                <TextField id="outlined-basic" variant="outlined" color='success'
                                     value={synopsis} onChange={(e) => setSynopsis(e.target.value)} required /> <br /><br />
 
 

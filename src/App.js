@@ -6,7 +6,6 @@ import Profile from './components/Profile';
 import Dashboard from './components/Dashboard';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import CreateBook from './components/CreateBook';
-import UpdateBook from './components/UpdateBook';
 import TbrList from './components/TbrList';
 import ReviewPage from './components/ReviewPage';
 import WriteAReview from './components/WriteAReview';
@@ -28,8 +27,6 @@ function App() {
           <Route path='/changepass' element={<ChangePass/>}/>
           <Route path='/tbrlist' element={<TbrList/>}/>
           <Route path='/createbook' element={<CreateBook/>}/>
-          <Route path='/updatebook/:id' element={<UpdateBook/>}/>
-          <Route path='/updatebook' element={<UpdateBook/>}/>
           <Route path='/reviewpage' element={<ReviewPage/>}/>
           <Route path='/writeareview' element={<WriteAReview/>}/>
           <Route path='/updateareview' element={<UpdateAReview/>}/>

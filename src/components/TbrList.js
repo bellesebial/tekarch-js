@@ -11,13 +11,10 @@ import Typography from '@mui/material/Typography';
 import NavBar from './NavBar';
 import TextField from '@mui/material/TextField';
 import axios from "axios";
-import { Link, useParams } from 'react-router-dom';
 
 export default function TbrList() {
 
 const [list,setList]=useState([])
-
-const {id}=useParams()
 
 useEffect(() => {
   loadLists();
@@ -27,11 +24,6 @@ const loadLists = async () => {
   const result = await axios.get("http://localhost:8080/tbr/getAllBook");
   setList(result.data);
 };
-
-// const updateList=async(id)=>{
-//   await axios.put(`http://localhost:8080/tbr/putBook/${id}`)
-//   loadLists()
-// }
 
 const deleteList=async(id)=>{
   await axios.delete(`http://localhost:8080/tbr/deleteBook/${id}`)
@@ -72,7 +64,6 @@ const deleteList=async(id)=>{
         </Typography>
 
         <CardActions>
-        <Button size="Medium" href="/updatebook">Update</Button>
         <Button size="Medium" onClick={()=>deleteList(list.id)}>Delete</Button>
       </CardActions>
 
@@ -80,9 +71,9 @@ const deleteList=async(id)=>{
     </Card>
       ))}
     </div>  
-      <Fab sx={{ width: 100, height: 100}} color="primary" aria-label="add" href="/createbook">
+    <Fab sx={{ width: 100, height: 100, top: 500, right: 250}} color="primary" aria-label="add" href="/createbook">
         <AddIcon class='fab'/>
-      </Fab>
+      </Fab>      
       </div></>
 
   );
