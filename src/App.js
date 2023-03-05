@@ -9,7 +9,6 @@ import CreateBook from './components/CreateBook';
 import TbrList from './components/TbrList';
 import ReviewPage from './components/ReviewPage';
 import WriteAReview from './components/WriteAReview';
-import UpdateAReview from './components/UpdateAReview';
 import DeleteAcc from './components/DeleteAcc';
 import ChangePass from './components/ChangePass';
 
@@ -29,7 +28,6 @@ function App() {
           <Route path='/createbook' element={<CreateBook/>}/>
           <Route path='/reviewpage' element={<ReviewPage/>}/>
           <Route path='/writeareview' element={<WriteAReview/>}/>
-          <Route path='/updateareview' element={<UpdateAReview/>}/>
         </Routes>
       </Router>
     </div>
